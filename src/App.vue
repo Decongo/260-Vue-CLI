@@ -1,31 +1,53 @@
+<!--Everything in here is global. HTML will appear on all pages; styles will apply to all pages-->
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="header">
+      <h1>Ticket System</h1>
+      <div id="nav">
+        <router-link to="/">Home</router-link>|
+        <router-link to="/create">New Ticket</router-link>|
+        <router-link to="/about">About</router-link>
+      </div>
     </div>
-    <router-view/>
+    <div class="content">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <style>
+body {
+  margin: 0px;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: #571845;
+  padding: 10px 100px;
+  color: white;
+}
+
 #nav {
   padding: 30px;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #fff;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ffc300;
+}
+
+.content {
+  padding: 10px 100px;
 }
 </style>

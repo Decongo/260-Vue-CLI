@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Current Tickets</h1>
+    <div v-for="ticket in tickets" v-bind:key="ticket._id">
+      <hr>
+      <div class="ticket">
+        <div class="problem">
+          <p>{{ticket.problem}}</p>
+          <p>
+            <i>-- {{ticket.name}}</i>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: "home",
+  computed: {
+    tickets() {
+      return this.$store.state.tickets;
+    }
+  },
+  created() {
+    this.$store.dispatch("getTickets");
   }
-}
+};
 </script>
+
